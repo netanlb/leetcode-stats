@@ -7,6 +7,7 @@ import { Progress } from '../../models/submissions.model';
 import { User } from '../../models/user.model';
 import { RecentSubmit } from '../../models/recent-submits.model';
 import { UserCalendar } from '../../models/user-calendar.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ import { UserCalendar } from '../../models/user-calendar.model';
 export class UserDataService {
   private router = inject(Router);
   private httpClient = inject(HttpClient);
-  private apiUrl = '/api/leetcode';
+  private apiUrl = `${environment.apiUrl}/leetcode`;
 
   private _user = signal<User | null>(null);
   public user = this._user.asReadonly();
@@ -84,7 +85,7 @@ export class UserDataService {
     if (error.status === 404) {
       this.router.navigate([''], { queryParams: { error: 'User not found' } });
     } else {
-      this.router.navigate([''], { queryParams: { error: 'Something went wrong :\()' } })
+      this.router.navigate([''], { queryParams: { error: 'Something went wrong :(' } })
     }
     return of(null);
   }

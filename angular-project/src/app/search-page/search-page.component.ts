@@ -30,7 +30,7 @@ export default class SearchPageComponent {
 
   ngOnInit() {
     this.route.queryParams.pipe(tap(({ error }) => {
-      console.log(error);
+      this.router.navigate([], { replaceUrl: true });
       this.errorMessage = error;
     })).subscribe();
   }
