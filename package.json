@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "build": "npm run build:frontend && npm run build:server",
+    "build:server": "cd server && npm install"
+    "build:frontend": "cd angular-project && npm install && npm run build"
+  },
   "dependencies": {
     "@types/express": "^5.0.0",
     "@types/node": "^22.10.5",
