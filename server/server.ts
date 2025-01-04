@@ -12,11 +12,9 @@ app.use(express.json());
 const angularAppPath = path.join(__dirname, 'public/leet-code-stats/browser');
 app.use(express.static(angularAppPath));
 
-app.use('/leetcode', leetcodeRoutes);
+app.use('/api/leetcode', leetcodeRoutes);
 
-app.get("/", (req: Request, res: any) => res.send("Express on Vercel"));
-
-app.get('/*', (req, res) => {
+app.get('/*', (req: Request, res: Response) => {
   res.sendFile(path.join(angularAppPath, 'index.html'));
 });
 
