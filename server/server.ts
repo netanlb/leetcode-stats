@@ -12,7 +12,7 @@ app.use(express.json());
 const angularAppPath = path.join(__dirname, 'public/leet-code-stats/browser');
 app.use(express.static(angularAppPath));
 
-app.use('/api/leetcode', leetcodeRoutes);
+app.use('/_api/leetcode', leetcodeRoutes);
 
 app.get('/*', (req: Request, res: Response) => {
   res.sendFile(path.join(angularAppPath, 'index.html'));
