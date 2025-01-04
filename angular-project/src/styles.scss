@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #0079fe;
+
+  --bg-dark: #141c2f;
+  --fg-dark: #1f2a48;
+  --text-dark: #ffffff;
+  --text-muted-dark: #8f93a4;
+
+  --bg-light: #f5f8ff;
+  --fg-light: #ffffff;
+  --text-light: #24292e;
+  --text-muted-light: #737a82;
+}
+
+body {
+  font-size: 16px;
+  font-family: "JetBrains Mono", serif;
+
+  @apply bg-bgLight dark:bg-bgDark;
+}
