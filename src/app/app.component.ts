@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { DarkModeService } from './shared/data-access/dark-mode.service';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,9 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'leet-code-stats';
+  public darkModeService = inject(DarkModeService);
+
+  ngOnInit() {
+    this.darkModeService.applyTheme();
+  }
 }
