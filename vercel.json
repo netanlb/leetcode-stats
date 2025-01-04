@@ -4,7 +4,7 @@
     { "src": "server/server.ts", "use": "@vercel/node" }
   ],
   "routes": [
-    { "src": "/_api/(.*)", "dest": "server/server.ts" },
+    { "src": "/api/(.*)", "dest": "server/server.ts" },
     { "src": "/(.*)", "dest": "server/server.ts" }
   ]
 }
