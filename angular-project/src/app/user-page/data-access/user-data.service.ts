@@ -85,7 +85,7 @@ export class UserDataService {
     if (error.status === 404) {
       this.router.navigate([''], { queryParams: { error: 'User not found' } });
     } else {
-      this.router.navigate([''], { queryParams: { error: 'Something went wrong :(' } })
+      this.router.navigate([''], { queryParams: { error: 'Something went wrong' } })
     }
     return of(null);
   }
