@@ -73,6 +73,9 @@ export const lightTheme: Highcharts.Options = {
       color: colors.primary
     }
   },
+  credits: {
+    enabled: false
+  }
 };
 
 export const darkTheme: Highcharts.Options = {
@@ -147,5 +150,8 @@ export const darkTheme: Highcharts.Options = {
       color: colors.primary
     }
   },
+  credits: {
+    enabled: false
+  }
 };
 

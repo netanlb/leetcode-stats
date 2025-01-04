@@ -43,14 +43,15 @@ export class StatsComponent {
       legend: {
         enabled: false
       },
-      credits: {
-        enabled: false
-      }
     }
   }
 
 
   private buildChart(selected: SkillLevels): Highcharts.Options {
+    if (!this.skillStats().tagProblemCounts[selected].length) return {
+      title: { text: selected, align: 'left' },
+      subtitle: { text: 'No data...' },
+    }
     const title: Highcharts.TitleOptions = this.getTitle(selected);
     const categories: string[] = this.getCategories(selected);
     const series: Highcharts.SeriesOptionsType[] = this.getSeries(selected);

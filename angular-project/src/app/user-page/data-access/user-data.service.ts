@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError, map, of, tap } from 'rxjs';
+import { catchError, map, Observable, of, tap } from 'rxjs';
 import { SkillStats } from '../../models/skill-stats.model';
 import { Progress } from '../../models/submissions.model';
 import { User } from '../../models/user.model';
@@ -36,11 +36,8 @@ export class UserDataService {
       tap((data) => {
         this._user.set(data as User);
       }),
-      catchError((error: HttpErrorResponse) => {
-        console.error(error);
-        this.router.navigate(['']);
-        return of(null);
-      }));
+      catchError(this.errorHandler.bind(this))
+    )
   }
 
   public fetchUserSessionProgress(username: string) {
@@ -48,11 +45,7 @@ export class UserDataService {
       tap((data) => {
         this._progress.set(data as Progress);
       }),
-      catchError((error: HttpErrorResponse) => {
-        console.error(error);
-        this.router.navigate(['']);
-        return of(null);
-      })
+      catchError(this.errorHandler.bind(this))
     )
   }
 
@@ -61,11 +54,7 @@ export class UserDataService {
       tap((data) => {
         this._skills.set(data as SkillStats);
       }),
-      catchError((error: HttpErrorResponse) => {
-        console.error(error);
-        this.router.navigate(['']);
-        return of(null);
-      })
+      catchError(this.errorHandler.bind(this))
     )
   }
 
@@ -77,10 +66,7 @@ export class UserDataService {
       tap((data: RecentSubmit[]) => {
         this._recent.set(data);
       }),
-      catchError((error: HttpErrorResponse) => {
-        console.error(error);
-        return of(null);
-      })
+      catchError(this.errorHandler.bind(this))
     )
   }
 
@@ -89,11 +75,18 @@ export class UserDataService {
       tap((data) => {
         this._calendar.set(data as UserCalendar);
       }),
-      catchError((error: HttpErrorResponse) => {
-        console.error(error);
-        return of(null);
-      })
+      catchError(this.errorHandler.bind(this))
     )
+  }
+
+  private errorHandler(error: HttpErrorResponse): Observable<any> {
+    console.error(error);
+    if (error.status === 404) {
+      this.router.navigate([''], { queryParams: { error: 'User not found' } });
+    } else {
+      this.router.navigate([''], { queryParams: { error: 'Something went wrong :\()' } })
+    }
+    return of(null);
   }
 
   public cleanUp() {

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { UserDataService } from './data-access/user-data.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { forkJoin, switchMap } from 'rxjs';
@@ -11,7 +11,8 @@ import { ActivityComponent } from './ui/activity/activity.component';
   selector: 'app-user-page',
   imports: [HeaderComponent, StatsComponent, RecentProblemsComponent, RouterModule, ActivityComponent],
   templateUrl: './user-page.component.html',
-  styleUrl: './user-page.component.scss'
+  styleUrl: './user-page.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class UserPageComponent {
   public dataService = inject(UserDataService);

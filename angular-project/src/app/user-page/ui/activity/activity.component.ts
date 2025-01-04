@@ -11,12 +11,17 @@ import { ChartComponent } from '../../../shared/ui/chart/chart.component';
 })
 export class ActivityComponent {
   public calendar = input.required<UserCalendar>();
+  private noData: Highcharts.Options = {
+    title: { text: 'Activity', align: 'left' },
+    subtitle: { text: 'No data...' }
+  };
 
   public chartOptions: Signal<Highcharts.Options> = computed(() => {
     const submissionCalendar = this.calendar().userCalendar.submissionCalendar;
-    console.log(this.calendar());
-    if (!submissionCalendar) return {};
-    const data: [number, number][] = this.fillGapsInTimeline(Object.entries(JSON.parse(submissionCalendar)));
+    if (!submissionCalendar) return this.noData;
+    const rawData: [string, number][] = Object.entries(JSON.parse(submissionCalendar));
+    if (!rawData?.length) return this.noData;
+    const data: [number, number][] = this.fillGapsInTimeline(rawData);
 
 
     return {
@@ -72,9 +77,6 @@ export class ActivityComponent {
         name: 'Submissions',
         data
       }],
-      credits: {
-        enabled: false
-      }
 
     }
   });

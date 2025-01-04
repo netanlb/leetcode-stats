@@ -1,4 +1,4 @@
-<div class="p-4 bg-fgLight dark:bg-fgDark rounded-xl shadow-lg">
+<div class="text-sm p-4 bg-fgLight dark:bg-fgDark rounded-xl shadow-lg">
   <h2 class="text-lg text-textMutedLight dark:text-textMutedDark font-bold p-2"><i class="fa-solid fa-puzzle-piece"></i> Recent Problems</h2>
   <ol>
     @for (submit of recentSubmits(); track submit.id) {
@@ -11,4 +11,7 @@
     </li>
     }
   </ol>
+  @if (!recentSubmits().length) {
+    <span class="text-sm text-textMutedLight dark:text-textMutedDark">No data...</span>
+  }
 </div>
