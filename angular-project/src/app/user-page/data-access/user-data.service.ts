@@ -14,7 +14,7 @@ import { UserCalendar } from '../../models/user-calendar.model';
 export class UserDataService {
   private router = inject(Router);
   private httpClient = inject(HttpClient);
-  private apiUrl = 'http://localhost:4000/api/leetcode';
+  private apiUrl = '/api/leetcode';
 
   private _user = signal<User | null>(null);
   public user = this._user.asReadonly();
