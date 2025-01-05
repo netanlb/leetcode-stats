@@ -2,7 +2,9 @@
   "scripts": {
     "build": "npm run build:frontend && npm run build:server",
     "build:server": "cd server && npm run build",
-    "build:frontend": "cd angular-project && npm run build"
+    "build:frontend": "cd angular-project && npm run build",
+    "start": "npm run build && node server/dist/server.js",
+    "start:dev": "npm run build:frontend && ts-node server/server.ts"
   },
   "dependencies": {
     "@vercel/node": "^5.0.2",
@@ -13,6 +15,7 @@
   "devDependencies": {
     "@types/express": "^5.0.0",
     "@types/node": "^22.10.5",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.2.2"
   }
 }
