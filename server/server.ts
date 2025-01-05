@@ -1,20 +1,20 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import leetcodeRoutes from './routes/leetcode.route';
 
 const app = express();
-const PORT = process.env.PORT || 4003;
+const PORT = process.env.PORT || 4000;
 
 app.use(cors());
 app.use(express.json());
 
-const angularAppPath = path.join(__dirname, '../public/leet-code-stats/browser');
+const angularAppPath = path.join(__dirname, 'public/leet-code-stats/browser');
 app.use(express.static(angularAppPath));
 
-app.use('/_api/leetcode', leetcodeRoutes);
+app.use('/api/leetcode', leetcodeRoutes);
 
-app.get('/*', (req: Request, res: Response) => {
+app.get('/*', (req, res) => {
   res.sendFile(path.join(angularAppPath, 'index.html'));
 });
 

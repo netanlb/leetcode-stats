@@ -1,9 +1,9 @@
 {
   "scripts": {
     "build": "npm run build:frontend && npm run build:server",
-    "build:server": "cd server && npm run build",
     "build:frontend": "cd angular-project && npm run build",
     "start": "npm run build && node server/dist/server.js",
+    "build:server": "cd server && npm install && npm run build && npm run copy-public",
     "dev": "npm run build:frontend && ts-node server/server.ts"
   },
   "dependencies": {

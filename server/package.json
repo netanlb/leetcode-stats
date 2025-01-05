@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "copy-public": "cp -R public dist/"
   },
   "author": "netanlb",
   "license": "ISC",
