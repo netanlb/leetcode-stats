@@ -4,7 +4,7 @@ import path from 'path';
 import leetcodeRoutes from './routes/leetcode.route';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4003;
 
 app.use(cors());
 app.use(express.json());
