@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.ts",
-    "build": "tsc",
+    "start": "node server.js",
+    "build": "npm run build:frontend && npm run build:server && copy-public",
+    "build:frontend": "cd ../angular-project npm run build",
+    "build:server": "tsc",
     "copy-public": "cp -R public dist/"
   },
   "author": "netanlb",
