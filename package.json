@@ -1,0 +1,17 @@
+{
+  "name": "leet-code-stats",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build:frontend && npm run build:server",
+    "build:frontend": "cd angular-project && npm run build",
+    "build:server": "cd server && npm install && npm run build && npm run copy-public",
+    "start": "npm run build && node server/dist/server.js",
+    "dev": "npm run build:frontend && ts-node server/server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
