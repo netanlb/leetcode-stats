@@ -15,9 +15,5 @@
       "src": "/(.*)",
       "dest": "server/dist/server.js"
     }
-  ],
-  "build": {
-    "command": "npm run build",
-    "outputDirectory": "server/dist"
-  }
+  ]
 }
