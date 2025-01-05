@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 4003;
 app.use(cors());
 app.use(express.json());
 
-const angularAppPath = path.join(__dirname, 'public/leet-code-stats/browser');
+const angularAppPath = path.join(__dirname, '../public/leet-code-stats/browser');
 app.use(express.static(angularAppPath));
 
 app.use('/_api/leetcode', leetcodeRoutes);

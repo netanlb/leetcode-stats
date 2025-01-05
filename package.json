@@ -4,7 +4,7 @@
     "build:server": "cd server && npm run build",
     "build:frontend": "cd angular-project && npm run build",
     "start": "npm run build && node server/dist/server.js",
-    "start:dev": "npm run build:frontend && ts-node server/server.ts"
+    "dev": "npm run build:frontend && ts-node server/server.ts"
   },
   "dependencies": {
     "@vercel/node": "^5.0.2",
