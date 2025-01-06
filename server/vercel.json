@@ -7,5 +7,5 @@
     { "src": "/api/(.*)", "dest": "server.ts" },
     { "src": "/(.*)", "dest": "server.ts" }
   ],
-  "buildCommand": "sh vercel.sh"
+  "buildCommand": "npm run build"
 }
