@@ -14,7 +14,7 @@ app.use(express.static(angularAppPath));
 
 app.use('/_api/leetcode', leetcodeRoutes);
 
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile(path.join(angularAppPath, 'index.html'));
 });
 
