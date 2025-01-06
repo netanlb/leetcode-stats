@@ -4,9 +4,9 @@
     @for (submit of recentSubmits(); track submit.id) {
     <li>
       <a [href]="'https://leetcode.com/problems/' + submit.titleSlug" target="_blank"
-        class="text-textLight dark:text-textDark flex justify-between gap-2 p-4 m-2 bg-bgLight dark:bg-bgDark rounded-xl hover:shadow-sm hover:text-primary hover:dark:text-primary transition">
+        class="text-textLight dark:text-textDark flex justify-between gap-4 p-4 m-2 bg-bgLight dark:bg-bgDark rounded-xl hover:shadow-sm hover:text-primary hover:dark:text-primary transition">
         <span>{{ submit.title }}</span>
-        <span class="text-textMutedLight dark:text-textMutedDark">{{ submit.timestamp | timeAgo }}</span>
+        <span class="text-textMutedLight dark:text-textMutedDark whitespace-nowrap">{{ submit.timestamp | timeAgo }}</span>
       </a>
     </li>
     }
