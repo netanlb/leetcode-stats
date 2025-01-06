@@ -1,3 +1,3 @@
 export const environment = {
-  apiUrl: '/api'
+  apiUrl: 'https://leetcode-stats-brown.vercel.app/api'
 };
