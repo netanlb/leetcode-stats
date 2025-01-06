@@ -10,7 +10,8 @@
     "build": "npm run build:frontend",
     "build:frontend": "cd ../angular-project && npm install && npm run build",
     "build:server": "tsc && npm run copy-public",
-    "copy-public": "cp -R public dist/"
+    "copy-public": "cp -R public dist/",
+    "deploy": "npm run build && vercel --prod"
   },
   "author": "netanlb",
   "license": "ISC",
