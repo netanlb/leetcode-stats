@@ -1,0 +1,15 @@
+{
+  "name": "leet-code-stats",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run start:server & npm run start:frontend",
+    "start:frontend": "cd angular-project && npm run start",
+    "start:server": "cd server && npm run start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

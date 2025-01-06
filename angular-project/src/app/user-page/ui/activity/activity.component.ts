@@ -86,7 +86,7 @@ export class ActivityComponent {
     const mapData = new Map(rawData);
 
     const min = rawData[0][0];
-    const max = rawData[rawData.length - 1][0];
+    const max = new Date().getTime();
     const day = 1000 * 60 * 60 * 24;
 
     const res = [];
