@@ -5,13 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build && node dist/server.js",
-    "dev": "ts-node server.ts",
+    "start": "npm run build && node server.ts",
     "build": "npm run build:frontend",
     "build:frontend": "cd ../angular-project && npm install && npm run build",
     "build:server": "tsc && npm run copy-public",
-    "copy-public": "cp -R public dist/",
-    "deploy": "npm run build && vercel --prod"
+    "copy-public": "cp -R public dist/"
   },
   "author": "netanlb",
   "license": "ISC",
